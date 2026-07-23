@@ -5,7 +5,8 @@
   "description": "Dashboard estatico de resultados de admision UNAM 2021-2026",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+     "build": "echo 'sitio estatico, sin paso de build'"
   },
   "engines": {
     "node": ">=18"
