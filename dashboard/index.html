@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resultados de admisión UNAM 2021–2026</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <h1>Resultados de admisión UNAM · Licenciatura</h1>
+    <p class="subtitle">Concurso de selección 2021–2026 · aciertos, cupos y tasas de aceptación</p>
+    <div class="filters">
+      <div class="filter-field">
+        <label for="carrera-select">Carrera</label>
+        <select id="carrera-select"></select>
+      </div>
+      <div class="filter-field">
+        <label for="plantel-select">Plantel</label>
+        <select id="plantel-select"></select>
+      </div>
+      <button class="filter-reset" id="reset-filters" type="button">Restablecer</button>
+    </div>
+  </div>
+</div>
+
+<main>
+  <p class="scope-banner" id="scope-banner"></p>
+
+  <div class="kpi-row" id="kpi-row"></div>
+
+  <section class="panel">
+    <div class="section-heading">
+      <h2>Distribución de aciertos por año</h2>
+      <span class="section-note">Aciertos sobre 120 reactivos · sólo aspirantes que presentaron examen</span>
+    </div>
+    <div class="chart-grid-2">
+      <div class="chart-card">
+        <h3>Histograma superpuesto por año</h3>
+        <div class="chart-wrap"><canvas id="chart-histogram"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Caja y bigotes por año</h3>
+        <div class="chart-wrap"><canvas id="chart-boxplot"></canvas></div>
+      </div>
+    </div>
+
+    <table class="stats-table" id="stats-table">
+      <caption>Estadísticos descriptivos de aciertos por año</caption>
+      <thead>
+        <tr>
+          <th>Año</th><th>n</th><th>Media</th><th>Mediana</th><th>Desv. Est.</th>
+          <th>Mín</th><th>Q1</th><th>Q3</th><th>Máx</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section class="panel">
+    <div class="section-heading">
+      <h2>Aciertos típicos vs. mínimo requerido</h2>
+      <span class="section-note">Mediana de aciertos y aciertos mínimos de aceptación por año</span>
+    </div>
+    <div class="chart-wrap"><canvas id="chart-median"></canvas></div>
+  </section>
+
+  <section class="panel">
+    <div class="section-heading">
+      <h2>Volumen por año</h2>
+      <span class="section-note">Aspirantes, lugares ofertados y aceptados</span>
+    </div>
+    <div class="chart-grid-3">
+      <div class="chart-card">
+        <h3>Aspirantes</h3>
+        <div class="chart-wrap short"><canvas id="chart-aspirantes"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Lugares ofertados</h3>
+        <div class="chart-wrap short"><canvas id="chart-lugares"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Aceptados</h3>
+        <div class="chart-wrap short"><canvas id="chart-aceptados"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="section-heading">
+      <h2>Tasas de aceptación por año</h2>
+      <span class="section-note">Aceptados entre aspirantes · aceptados entre lugares ofertados (escalas distintas)</span>
+    </div>
+    <div class="chart-grid-2">
+      <div class="chart-card">
+        <h3>Aceptados / Aspirantes</h3>
+        <div class="chart-wrap short"><canvas id="chart-rate-aspirantes"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Aceptados / Lugares ofertados</h3>
+        <div class="chart-wrap short"><canvas id="chart-rate-lugares"></canvas></div>
+      </div>
+    </div>
+    <p class="section-note" style="margin-top:10px;">
+      La tasa de aceptados/lugares puede superar el 100% porque los seleccionados incluyen ingresos por vías
+      adicionales al examen (pase reglamentado, deportivos de alto rendimiento, etc.), no sólo el cupo concursado.
+    </p>
+
+    <table class="stats-table" id="totals-table">
+      <caption>Resumen por año</caption>
+      <thead>
+        <tr>
+          <th>Año</th><th>Aspirantes</th><th>Presentaron</th><th>Lugares</th><th>Aceptados</th>
+          <th>Aceptados/Aspirantes</th><th>Aceptados/Lugares</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <footer>
+    Fuente: Dirección General de Administración Escolar (DGAE), UNAM — resultados de licenciatura 2021–2026.
+    Panel generado localmente a partir de los archivos de resultados individuales y agregados por carrera/plantel.
+  </footer>
+</main>
+
+<script src="vendor/chart.umd.min.js"></script>
+<script src="vendor/chartjs-chart-boxplot.umd.min.js"></script>
+<script>
+  Chart.register(ChartBoxPlot.BoxPlotController, ChartBoxPlot.BoxAndWiskers);
+</script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

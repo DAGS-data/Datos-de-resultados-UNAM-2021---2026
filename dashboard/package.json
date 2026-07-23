@@ -1,0 +1,13 @@
+{
+  "name": "unam-resultados-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dashboard estatico de resultados de admision UNAM 2021-2026",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
