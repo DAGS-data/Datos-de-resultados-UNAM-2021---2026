@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Resultados de admisión UNAM 2021–2026</title>
+<title>Resultados de admisión UNAM · SUAYED</title>
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
 <div class="topbar">
   <div class="topbar-inner">
-    <h1>Resultados de admisión UNAM · Licenciatura</h1>
-    <p class="subtitle">Concurso de selección 2021–2026 · aciertos, cupos y tasas de aceptación</p>
+    <h1>Resultados de admisión UNAM · SUAYED</h1>
+    <p class="subtitle">Concurso de selección 2021–2026 · aciertos y tasas de aceptación (modalidad a distancia)</p>
     <nav class="page-nav">
-      <a href="index.html" class="active">Escolarizado</a>
-      <a href="suayed.html">SUAYED</a>
+      <a href="index.html">Escolarizado</a>
+      <a href="suayed.html" class="active">SUAYED</a>
       <a href="suayed_noviembre.html">SUAYED Noviembre</a>
     </nav>
     <div class="filters">
@@ -109,8 +109,10 @@
   </section>
 
   <footer>
-    Fuente: Dirección General de Administración Escolar (DGAE), UNAM — resultados de licenciatura 2021–2026.
-    Panel generado localmente a partir de los archivos de resultados individuales y agregados por carrera/plantel.
+    Fuente: Dirección General de Administración Escolar (DGAE), UNAM — resultados de licenciatura SUAYED 2021–2026.
+    Panel generado localmente a partir de los archivos de resultados individuales (no incluye "oferta" de lugares
+    ni "aciertos mínimos" de corte, porque solo se ha corrido el scraper de resultados individuales para SUAYED,
+    no el de resumen por licenciatura/plantel).
   </footer>
 </main>
 
@@ -119,7 +121,10 @@
 <script>
   Chart.register(ChartBoxPlot.BoxPlotController, ChartBoxPlot.BoxAndWiskers);
 </script>
-<script src="data.js"></script>
+<script src="data_suayed.js"></script>
+<script>
+  window.ACTIVE_DATA = UNAM_DATA_SUAYED;
+</script>
 <script src="app.js"></script>
 </body>
 </html>

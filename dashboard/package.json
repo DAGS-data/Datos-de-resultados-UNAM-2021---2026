@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-     "build": "echo 'sitio estatico, sin paso de build'"
+    "build": "echo 'sitio estatico, sin paso de build'"
   },
   "engines": {
     "node": ">=18"

@@ -83,6 +83,33 @@ a { color: var(--series-1); }
   margin: 0 0 14px;
 }
 
+.page-nav {
+  display: flex;
+  gap: 4px;
+  margin: 0 0 14px;
+}
+
+.page-nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+.page-nav a:hover {
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.page-nav a.active {
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--series-1) 14%, transparent);
+  border-color: color-mix(in srgb, var(--series-1) 40%, transparent);
+}
+
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -217,13 +244,6 @@ section.panel {
   margin-top: 14px;
 }
 
-.chart-grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 14px;
-}
-
 .chart-card {
   min-width: 0;
 }
@@ -239,7 +259,6 @@ section.panel {
   position: relative;
   height: 280px;
 }
-.chart-wrap.short { height: 210px; }
 
 table.stats-table {
   width: 100%;
@@ -276,6 +295,26 @@ table.stats-table thead th {
   border-bottom: 1px solid var(--baseline);
 }
 
+.table-scroll {
+  max-height: 480px;
+  overflow-y: auto;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-top: 14px;
+}
+
+.table-scroll table.stats-table {
+  margin-top: 0;
+}
+
+.table-scroll thead th {
+  position: sticky;
+  top: 0;
+  background: var(--surface-1);
+  z-index: 1;
+}
+
 table.stats-table tbody tr:hover {
   background: color-mix(in srgb, var(--text-primary) 4%, transparent);
 }
@@ -300,6 +339,5 @@ footer {
 @media (max-width: 860px) {
   .kpi-row { grid-template-columns: repeat(2, 1fr); }
   .chart-grid-2 { grid-template-columns: 1fr; }
-  .chart-grid-3 { grid-template-columns: 1fr; }
   .filter-field select { min-width: 160px; }
 }

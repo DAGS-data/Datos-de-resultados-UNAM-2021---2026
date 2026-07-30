@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Resultados de admisión UNAM 2021–2026</title>
+<title>Resultados de admisión UNAM · SUAYED Noviembre</title>
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
 <div class="topbar">
   <div class="topbar-inner">
-    <h1>Resultados de admisión UNAM · Licenciatura</h1>
-    <p class="subtitle">Concurso de selección 2021–2026 · aciertos, cupos y tasas de aceptación</p>
+    <h1>Resultados de admisión UNAM · SUAYED Noviembre</h1>
+    <p class="subtitle">Convocatoria extraordinaria de noviembre 2021–2025 · modalidad a distancia · aciertos y tasas de aceptación</p>
     <nav class="page-nav">
-      <a href="index.html" class="active">Escolarizado</a>
+      <a href="index.html">Escolarizado</a>
       <a href="suayed.html">SUAYED</a>
-      <a href="suayed_noviembre.html">SUAYED Noviembre</a>
+      <a href="suayed_noviembre.html" class="active">SUAYED Noviembre</a>
     </nav>
     <div class="filters">
       <div class="filter-field">
@@ -70,26 +70,27 @@
 
   <section class="panel">
     <div class="section-heading">
-      <h2>Mayor cambio en la distribución de aciertos (2025→2026)</h2>
+      <h2>Mayor cambio en la distribución de aciertos (2024→2025)</h2>
       <span class="section-note" id="wasserstein-note"></span>
     </div>
     <p class="section-note">
-      Distancia de Wasserstein-1 entre la distribución completa de aciertos de 2025 y 2026 (en puntos de aciertos,
-      no sólo la mediana). Se excluyen carreras/planteles nuevos o sin datos en alguno de los dos años, y
-      combinaciones con muy pocos aspirantes (ver nota arriba). No cambia con los filtros de arriba.
+      Distancia de Wasserstein-1 entre la distribución completa de aciertos de 2024 y 2025 (en puntos de aciertos,
+      no sólo la mediana). Se comparan los dos años más recientes con datos de esta convocatoria — se excluyen
+      carreras/planteles nuevos o sin datos en alguno de los dos años, y combinaciones con muy pocos aspirantes
+      (ver nota arriba). No cambia con los filtros de arriba.
     </p>
     <div class="table-scroll">
       <table class="stats-table" id="wasserstein-table">
         <thead>
           <tr>
-            <th>#</th><th>Carrera</th><th>Plantel</th><th>Distancia</th><th>Cambio mediana</th><th>Realizaron examen 2025</th><th>Realizaron examen 2026</th>
+            <th>#</th><th>Carrera</th><th>Plantel</th><th>Distancia</th><th>Cambio mediana</th><th>Realizaron examen 2024</th><th>Realizaron examen 2025</th>
           </tr>
         </thead>
         <tbody></tbody>
       </table>
     </div>
 
-    <h3 style="margin-top:20px;font-size:13px;font-weight:600;color:var(--text-secondary);">Examinandos 2026 vs. cambio en mediana de aciertos</h3>
+    <h3 style="margin-top:20px;font-size:13px;font-weight:600;color:var(--text-secondary);">Examinandos 2025 vs. cambio en mediana de aciertos</h3>
     <div class="chart-wrap"><canvas id="chart-scatter-distance"></canvas></div>
   </section>
 
@@ -109,8 +110,10 @@
   </section>
 
   <footer>
-    Fuente: Dirección General de Administración Escolar (DGAE), UNAM — resultados de licenciatura 2021–2026.
-    Panel generado localmente a partir de los archivos de resultados individuales y agregados por carrera/plantel.
+    Fuente: Dirección General de Administración Escolar (DGAE), UNAM — resultados de licenciatura SUAYED,
+    convocatoria extraordinaria de noviembre, 2021–2025. Panel generado localmente a partir de los archivos de
+    resultados individuales (no incluye "oferta" de lugares ni "aciertos mínimos" de corte, porque solo se ha
+    corrido el scraper de resultados individuales para esta convocatoria, no el de resumen por licenciatura/plantel).
   </footer>
 </main>
 
@@ -119,7 +122,10 @@
 <script>
   Chart.register(ChartBoxPlot.BoxPlotController, ChartBoxPlot.BoxAndWiskers);
 </script>
-<script src="data.js"></script>
+<script src="data_suayed_noviembre.js"></script>
+<script>
+  window.ACTIVE_DATA = UNAM_DATA_SUAYED_NOVIEMBRE;
+</script>
 <script src="app.js"></script>
 </body>
 </html>
